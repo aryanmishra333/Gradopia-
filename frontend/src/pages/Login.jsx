@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom'; // Import Link from react-router-dom
 import axios from 'axios';
 
 const Login = () => {
@@ -36,6 +36,9 @@ const Login = () => {
             <form onSubmit={handleSubmit}>
                 <input type="email" name="email" placeholder="Email" onChange={handleChange} required />
                 <input type="password" name="password" placeholder="Password" onChange={handleChange} required />
+                <p>
+                    Don't have an account? <Link to="/register">Register</Link>
+                </p>
                 <button type="submit">Login</button>
             </form>
         </div>
