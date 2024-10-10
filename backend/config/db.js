@@ -1,6 +1,6 @@
-const mysql = require('mysql2');
-const dotenv = require('dotenv');
-dotenv.config();
+import mysql from 'mysql2'; // Import mysql2
+import dotenv from 'dotenv'; // Import dotenv
+dotenv.config(); // Load environment variables
 
 const connection = mysql.createConnection({
     host: process.env.DB_HOST,
@@ -9,6 +9,7 @@ const connection = mysql.createConnection({
     database: process.env.DB_NAME,
 });
 
+// Establish the database connection
 connection.connect((err) => {
     if (err) {
         console.error('Database connection failed: ' + err.stack);
@@ -17,4 +18,4 @@ connection.connect((err) => {
     console.log('Connected to database.');
 });
 
-module.exports = connection;
+export default connection; // Use ES6 default export

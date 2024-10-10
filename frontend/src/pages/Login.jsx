@@ -1,6 +1,8 @@
+// frontend/src/pages/Login.jsx
 import React, { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom'; // Import Link from react-router-dom
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import Cookies from 'js-cookie';
 
 const Login = () => {
     const [formData, setFormData] = useState({
@@ -21,9 +23,10 @@ const Login = () => {
         e.preventDefault();
         try {
             const response = await axios.post(`${import.meta.env.VITE_API_URL}/auth/login`, formData);
-            localStorage.setItem('token', response.data.token);
+            const token = response.data.token;
+            Cookies.set('jwt', token); // Store token in cookie
             alert('Login successful');
-            navigate('/dashboard');
+            navigate('/dashboard'); // Redirect to dashboard after login
         } catch (err) {
             console.error(err);
             alert('Login failed');
@@ -36,9 +39,6 @@ const Login = () => {
             <form onSubmit={handleSubmit}>
                 <input type="email" name="email" placeholder="Email" onChange={handleChange} required />
                 <input type="password" name="password" placeholder="Password" onChange={handleChange} required />
-                <p>
-                    Don't have an account? <Link to="/register">Register</Link>
-                </p>
                 <button type="submit">Login</button>
             </form>
         </div>

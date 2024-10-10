@@ -1,4 +1,4 @@
-const db = require('../config/db');
+import db from '../config/db.js'; // Use the appropriate path and ensure it has a default export
 
 class User {
     static register(userData, callback) {
@@ -23,4 +23,4 @@ class User {
     }
 }
 
-module.exports = User;
+export default User; // Export the User class as the default export

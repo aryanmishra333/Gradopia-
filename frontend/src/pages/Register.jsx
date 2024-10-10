@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom'; // Import Link from react-router-dom
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const Register = () => {
@@ -52,9 +52,6 @@ const Register = () => {
                 <input type="number" name="graduationYear" placeholder="Graduation Year" onChange={handleChange} />
                 <input type="text" name="currentJobTitle" placeholder="Current Job Title" onChange={handleChange} />
                 <input type="url" name="linkedInProfile" placeholder="LinkedIn Profile" onChange={handleChange} />
-                <p>
-                    Already have an account? <Link to="/login">Login</Link> {/* Use Link instead of a tag */}
-                </p>
                 <button type="submit">Register</button>
             </form>
         </div>

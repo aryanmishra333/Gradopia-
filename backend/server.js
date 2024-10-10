@@ -1,8 +1,10 @@
-const express = require('express');
-const cors = require('cors');
-const bodyParser = require('body-parser');
-const authRoutes = require('./routes/authRoutes');
-const dotenv = require('dotenv');
+// backend/index.js
+import express from 'express';
+import cors from 'cors';
+import bodyParser from 'body-parser';
+import authRoutes from './routes/authRoutes.js';  // Add ".js" for ES6 modules
+import dotenv from 'dotenv';
+
 dotenv.config();
 
 const app = express();
